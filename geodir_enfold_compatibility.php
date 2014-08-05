@@ -3,7 +3,7 @@
 Plugin Name: GeoDirectory - Enfold Theme Compatibility
 Plugin URI: http://wpgeodirectory.com
 Description: This plugin lets the GeoDirectory Plugin use the Enfold theme HTML wrappers to fit and work perfectly.
-Version: 1.0.0
+Version: 1.0.2
 Author: GeoDirectory
 Author URI: http://wpgeodirectory.com
 
@@ -33,7 +33,7 @@ function enfold_action_calls(){
 	
 	// HOME TOP SIDEBAR
 	remove_action( 'geodir_home_before_main_content', 'geodir_action_geodir_sidebar_home_top', 10 );
-	add_action( 'ava_after_main_container', 'enfold_home_sidebar' );
+	//add_action( 'ava_after_main_container', 'enfold_home_sidebar' );
 	add_action( 'geodir_before_search_form', 'enfold_search_container_open' );
 	add_action( 'geodir_after_search_form', 'enfold_search_container_close' );
 	
@@ -61,6 +61,9 @@ function enfold_action_calls(){
 	// SIDEBAR RIGHT CLOSE ACTIONS
 	remove_action( 'geodir_sidebar_right_close', 'geodir_action_sidebar_right_close', 10);
 	add_action( 'geodir_sidebar_right_close', 'enfold_action_sidebar_right_close', 10,1);
+	
+	// HOME PAGE BREADCRUMBS
+	remove_action( 'geodir_home_before_main_content', 'geodir_breadcrumb', 20 );
 	
 	// LISTINGS PAGE BREADCRUMBS & TITLES
 	remove_action( 'geodir_listings_before_main_content', 'geodir_breadcrumb', 20 );
@@ -98,18 +101,6 @@ function wpgeo_enfold_body_class($classes) {
 	return $classes;
 }
 
-// REPLACE HOME TOP SIDEBAR AFTER HEADER
-function enfold_home_sidebar() {
-	//if ( geodir_is_geodir_page() ) {
-		global $wp;
-		if ( $wp->query_vars['page_id'] == get_option( 'geodir_location_page' ) || is_home() && !$_GET['geodir_signup'] ) {
-			echo '<div class="enfold-home-top">';
-        	dynamic_sidebar('geodir_home_top');
-			echo '</div>';
-		}
-	//}
-}
-
 // ADD OPENING WRAP TO SEARCHBAR
 function enfold_search_container_open() {
 	echo '<div class="container">';
@@ -122,18 +113,28 @@ function enfold_search_container_close() {
 
 // WRAPPER OPEN FUNCTIONS
 function enfold_action_wrapper_open(){
-	if ( is_home() && $_GET['geodir_signup'] ) {
-		echo "<div class='container_wrap container_wrap_first main_color fullsize'>";
-	} else {
-		echo "<div class='container_wrap container_wrap_first main_color ".avia_layout_class( 'main' ,false)."'>";
-	}
-	echo "<div class='container template-blog '>";
+	global $wp;
+		if ( $wp->query_vars['page_id'] == get_option( 'geodir_location_page' ) || is_home() && !$_GET['geodir_signup'] ) {
+			echo '<div class="enfold-home-top">';
+        	dynamic_sidebar('geodir_home_top');
+			echo '</div>';
+			echo "<div class='container_wrap container_wrap_first main_color ".avia_layout_class( 'main' ,false)."'>";
+		} elseif ( is_home() && $_GET['geodir_signup'] ) {
+			echo "<div class='container_wrap container_wrap_first main_color fullsize'>";
+		} else {
+			echo "<div class='container_wrap container_wrap_first main_color ".avia_layout_class( 'main' ,false)."'>";
+		}
+		echo "<div class='container template-blog '>";
 }
 
 // PAGE TITLE & BREADCRUMB FUNCTIONS
 function enfold_detail_title($page,$class){
 	//echo '###'.$page;
-	if($page=='details-page'){
+	global $wp;
+	if ( $wp->query_vars['page_id'] == get_option( 'geodir_location_page' ) && !$_GET['geodir_signup'] ) {
+		add_action( 'avia_breadcrumbs_trail', 'enfold_detail_breadcrum', 8,2 );
+		echo avia_title();
+	}elseif($page=='details-page'){
 		add_action( 'avia_breadcrumbs_trail', 'enfold_detail_breadcrum', 8,2 );
 		echo avia_title();
 	}elseif($page=='listings-page' || $page=='search-page'){

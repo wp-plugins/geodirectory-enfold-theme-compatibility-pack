@@ -1,5 +1,12 @@
 /* GeoDirectory Style Modifications for Enfold */
 
+/* Remove background image from select elements */
+#top.wpgeo-enfold select,
+#top.wpgeo-enfold .avia_ajax_form .select,
+#top.wpgeo-enfold .entry-content-wrapper select,
+#top.wpgeo-enfold .mobileMenu {
+	background-image: none;
+}
 /* Nav bar */
 .wpgeo-enfold .av-main-nav ul {
 	width: 222px;
@@ -95,4 +102,17 @@
 .wpgeo-enfold .geodir_category_list_view li {
 	margin-left: 0;
 	padding: 0;
+}
+
+/* Sidebar Widgets */
+.widget ul.geodir-loginbox-list {
+	overflow: visible;
+}
+
+.geodir_category_list_view li .geodir-post-img {
+	display: block;
+}
+
+@media only screen and (max-width:480px) {	/* Going to be added to core later */
+  .geodir_category_list_view li .geodir-content, .geodir_category_list_view li .geodir-post-img, .geodir_category_list_view li .geodir-addinfo{ float:none; width:100%; margin:10px 0;}
 }
