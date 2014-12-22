@@ -3,11 +3,16 @@
 Plugin Name: GeoDirectory - Enfold Theme Compatibility
 Plugin URI: http://wpgeodirectory.com
 Description: This plugin lets the GeoDirectory Plugin use the Enfold theme HTML wrappers to fit and work perfectly.
-Version: 1.0.2
+Version: 1.0.3
 Author: GeoDirectory
 Author URI: http://wpgeodirectory.com
 
 */
+
+// let this plugin be updated
+if(is_admin()){ 
+	require_once('gd_update.php'); // require update script
+}
 
 
 // BECAUSE THIS PLUGIN IS CALLED BEFORE GD WE MUST CALL THIS PLUGIN ONCE GD LOADS
@@ -21,6 +26,11 @@ function enfold_action_calls(){
 	
 	// Add body class for styling purposes
 	add_filter('body_class','wpgeo_enfold_body_class');
+
+	// Pages using the page-builder shouldn't redirect on successful payment
+	if(isset($_REQUEST['pay_action'])){
+		add_action( 'init' , 'geodir_allow_payment_urls_enfold' , 15 );
+	}
 	
 	// LOCATION MANAGER MENU ACTIONS - set the location menu item before the Enfold search
 	if (function_exists('geodir_location_menu_items')) {
@@ -99,6 +109,11 @@ function wpgeo_enfold_styles() {
 function wpgeo_enfold_body_class($classes) {
 	$classes[] = 'wpgeo-enfold';
 	return $classes;
+}
+
+function geodir_allow_payment_urls_enfold() {
+	global $builder;
+	remove_action( 'template_redirect',array($builder, 'template_redirect' ),1000 );
 }
 
 // ADD OPENING WRAP TO SEARCHBAR

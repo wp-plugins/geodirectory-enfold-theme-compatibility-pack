@@ -1,4 +1,4 @@
-/* GeoDirectory Style Modifications for Enfold */
+/* GeoDirectory Style Modifications for Enfold - Version 1.0.3 */
 
 /* Remove background image from select elements */
 #top.wpgeo-enfold select,
@@ -53,6 +53,8 @@
 
 #main .geodir-search input[type="button"],
 #main .geodir-search input[type="submit"] {
+	font-size: inherit;
+	line-height: 2.25;
 	margin: 0;
 	padding: 7px;
 	width: 13%;
@@ -98,6 +100,33 @@
 	padding: 0;
 }
 
+#respond {
+	clear: both;
+}
+
+#comments .comments-title span {
+	display: inline;
+	font-size: inherit;
+	font-weight: bold;
+}
+
+#reviewsTab .comments-area .bypostauthor cite span {
+	display: inline;
+}
+
+#top #comments .commentlist .comment,
+#top #comments .commentlist .comment > div {
+	min-height: 0;
+}
+
+.commentlist .commenttext {
+	padding-top: 15px;
+}
+
+#comment_imagesdropbox {
+	margin-bottom: 20px;
+}
+
 /* Listings page */
 .wpgeo-enfold .geodir_category_list_view li {
 	margin-left: 0;
@@ -113,6 +142,25 @@
 	display: block;
 }
 
-@media only screen and (max-width:480px) {	/* Going to be added to core later */
-  .geodir_category_list_view li .geodir-content, .geodir_category_list_view li .geodir-post-img, .geodir_category_list_view li .geodir-addinfo{ float:none; width:100%; margin:10px 0;}
+/* Event Calendar */
+.wpgeo-enfold .geodir_event_listing_calendar tr.title {
+	background: #ccc;
+}
+
+@media only screen and (max-width:480px) {
+
+  .geodir_category_list_view li .geodir-content,
+  .geodir_category_list_view li .geodir-post-img,
+  .geodir_category_list_view li .geodir-addinfo {
+  	float:none; width:100%; margin:10px 0;
+  }
+
+  #main .geodir-search input[type="text"],
+  #main .geodir-search input[type="button"],
+  #main .geodir-search input[type="submit"],
+  #main .geodir-search select {
+  	margin: 10px 0;
+  	width: 100%;
+  }
+
 }

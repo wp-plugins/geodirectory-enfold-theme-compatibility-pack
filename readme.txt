@@ -1,10 +1,10 @@
 === GeoDirectory - Enfold Compatibility Pack ===
-Contributors: stiofansisland, paoltaia, rightmentor, posh-john
+Contributors: stiofansisland, paoltaia, posh-john
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=payments@nomaddevs.com&item_name=Donation+for+WPGD
 Tags:  enfold, geodirectory, address book, addressbook, addresses, bio, biographies, bios, business, business directory plugin, business-directory, businesses, directories, directory, directory plugin, directory widget, googlemap, googlemaps, google maps, list, listings, lists, member directory, members directories, members directory, microformat, microformats, profile, profiles, staff, user, users, vcard, wordpress business directory, wordpress directory, wordpress directory plugin, yelp clone, tripadvisor clone, yellow pages clone, wordpress business directory plugin, wordpress directory theme, wordpress business directory theme, wordpress city directory plugin, wordpress local directory plugin
 Requires at least: 3.1
-Tested up to: 3.9.1
-Stable tag: 1.0.2
+Tested up to: 4.0.1
+Stable tag: 1.0.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Plugin providing all functions needed to make Enfold Theme 100% compatible with GeoDirectory
@@ -42,6 +42,9 @@ Automatic updates should seamlessly work. We always suggest you backup up your w
 == Screenshots ==
 = coming soon =
 == Changelog ==
+= 1.0.3 =
+CSS improvements to comments display and search
+Added function for payments pages to bypass redirect when home page uses the layout builder
 = 1.0.2 =
 Css fixes
 Moved breadcrumbs on location pages
