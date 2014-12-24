@@ -3,16 +3,11 @@
 Plugin Name: GeoDirectory - Enfold Theme Compatibility
 Plugin URI: http://wpgeodirectory.com
 Description: This plugin lets the GeoDirectory Plugin use the Enfold theme HTML wrappers to fit and work perfectly.
-Version: 1.0.3
+Version: 1.0.4
 Author: GeoDirectory
 Author URI: http://wpgeodirectory.com
 
 */
-
-// let this plugin be updated
-if(is_admin()){ 
-	require_once('gd_update.php'); // require update script
-}
 
 
 // BECAUSE THIS PLUGIN IS CALLED BEFORE GD WE MUST CALL THIS PLUGIN ONCE GD LOADS
