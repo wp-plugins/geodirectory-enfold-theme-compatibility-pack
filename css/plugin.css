@@ -1,7 +1,7 @@
 /* GeoDirectory Style Modifications for Enfold - Version 1.0.3 */
 
 /* Remove background image from select elements */
-#top.wpgeo-enfold select,
+/*#top.wpgeo-enfold select,*/
 #top.wpgeo-enfold .avia_ajax_form .select,
 #top.wpgeo-enfold .entry-content-wrapper select,
 #top.wpgeo-enfold .mobileMenu {

@@ -3,8 +3,8 @@ Contributors: stiofansisland, paoltaia, posh-john
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=payments@nomaddevs.com&item_name=Donation+for+WPGD
 Tags:  enfold, geodirectory, address book, addressbook, addresses, bio, biographies, bios, business, business directory plugin, business-directory, businesses, directories, directory, directory plugin, directory widget, googlemap, googlemaps, google maps, list, listings, lists, member directory, members directories, members directory, microformat, microformats, profile, profiles, staff, user, users, vcard, wordpress business directory, wordpress directory, wordpress directory plugin, yelp clone, tripadvisor clone, yellow pages clone, wordpress business directory plugin, wordpress directory theme, wordpress business directory theme, wordpress city directory plugin, wordpress local directory plugin
 Requires at least: 3.1
-Tested up to: 4.0.1
-Stable tag: 1.0.4
+Tested up to: 4.1.0
+Stable tag: 1.0.5
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Plugin providing all functions needed to make Enfold Theme 100% compatible with GeoDirectory
@@ -21,7 +21,8 @@ This make GeoDirectory pages display gracefully when used with Enfold.
 
 = Requires GeoDirectory and Enfold theme from Kriesi.at =
 
-* [Get GeoDirectory](http://wpgeodirectory.com/).
+* [Get GeoDirectory](https://wordpress.org/plugins/geodirectory/).
+* [Get GeoDirectory Addons](http://wpgeodirectory.com/).
 * [Get Enfold](http://kriesi.at/).
 
 == Installation ==
@@ -42,6 +43,11 @@ Automatic updates should seamlessly work. We always suggest you backup up your w
 == Screenshots ==
 = coming soon =
 == Changelog ==
+
+= 1.0.5 =
+Double map issue becasue of GeoDirectory template change - FIXED
+Location page breadcrum added - ADDED
+CSS tweak for select items - CHANGED
 = 1.0.4 =
 Remove function to update from wpgeodirectory.com that was breaking 1.0.3
 = 1.0.3 =
